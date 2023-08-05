@@ -1,0 +1,79 @@
+@import "@scss";
+nav {
+    width: 100%;
+    height: $navH;
+    font-size: $fs_medium;
+    background-color: $cl_nav_main;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: $beforeNavH;
+    z-index: $zi_max;
+    .nav_content {
+      width: 100%;
+      max-width: $maxW;
+      height: 100%;
+      font-size: 1em;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      .left_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1em;
+        .logo {
+          font-size: 2em;
+          color: $cl_brand;
+          transition: all 0.3s;
+          cursor: pointer;
+          &:hover {
+            color: black;
+            transform: scale(1.1);
+          }
+        }
+      }
+      .middle_content {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.7em;
+        font-family: $f_feature;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        .item {
+          transition: all 0.2s;
+          cursor: pointer;
+          margin-right: 20px;
+          font-weight: 700;
+          color: $cl_brand;
+          &:last-child {
+            margin: unset;
+          }
+          &:hover {
+            transform: scale(1.1);
+            color: black;
+          }
+        }
+      }
+      .right_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .item {
+            cursor: pointer;
+            color:$cl_brand;
+            transition: all 0.2s;
+            &:hover {
+                color: black;
+                transform: scale(1.1);
+            }
+        }
+        .item_center {
+            margin: 0 10px;
+        }
+      }
+    }
+  }

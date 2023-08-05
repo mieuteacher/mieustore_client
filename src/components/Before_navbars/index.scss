@@ -1,0 +1,60 @@
+@import "@scss";
+.before_nav {
+    background-color: $cl_body_main;
+    display: flex;
+    justify-content: center;
+    height: $beforeNavH;
+    position: sticky;
+    top: 0;
+    z-index: $zi_max;
+    font-size: $fs_medium;
+    .before_nav_content {
+      width: $maxW;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1em;
+      .brand_name {
+        text-transform: uppercase;
+        font-size: 0.7em;
+        font-family: $f_brand;
+        cursor: pointer;
+        width: 100px;
+        color: $cl_brand;
+        &:hover {
+            transform: scale(1.1);
+        }
+      }
+      .feature {
+        font-size: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1em;
+        font-family: $f_feature;
+        max-width: 300px;
+        .feature_item {
+          font-size: 0.6em;
+          min-width: 70px;
+          text-align: center;
+          cursor: pointer;
+          color: $cl_brand;
+          &:hover {
+            transform: scale(1.1);
+            font-weight: 900;
+          }
+          &:last-child {
+            width: auto;
+          }
+        }
+        .feature_item_center {
+            font-size: 0.6em;
+            min-width: 30px;
+            text-align: center;
+            font-weight: 900;
+            color: black;
+        }
+      }
+    }
+}

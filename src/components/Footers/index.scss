@@ -1,0 +1,34 @@
+@import '@scss';
+
+footer {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    background-color: $cl_nav_main;
+    .footer_content {
+        width: $maxW;
+        height: 100%;
+        .footer_content_up {
+            width: 100%;
+            height: 190px;
+            display: flex;
+            align-items: center;
+            .footer_content_up_left {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                .items {
+                    display: flex;
+                    flex-direction: column;
+                    color: $f_feature;
+                }
+            }
+            .footer_content_up_right {
+                width: 50%;
+                height: 100%;
+            }
+        }
+    }
+}
