@@ -1,5 +1,5 @@
 import "./main.scss";
-import { Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {useEffect } from 'react';
 
 /* Route Config */
@@ -9,6 +9,7 @@ import HomeRoute from "@pages/home/Route";
 import { useDispatch } from 'react-redux';
 import { userActions } from '@actions/user';
 
+import NotFound from '@components/NotFound'
 function App() {
   const dispatch = useDispatch();
 
@@ -21,6 +22,7 @@ function App() {
         {AuthRoute}
         {/* Home */}
         {HomeRoute}
+        <Route path="*"  element={<NotFound/>}></Route>
       </Routes>
   );
 }

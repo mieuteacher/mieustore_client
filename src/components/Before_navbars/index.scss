@@ -33,10 +33,10 @@
         align-items: center;
         font-size: 1em;
         font-family: $f_feature;
-        max-width: 300px;
+        //max-width: 300px;
         .feature_item {
           font-size: 0.6em;
-          min-width: 70px;
+          //min-width: 100px;
           text-align: center;
           cursor: pointer;
           color: $cl_brand;
@@ -46,6 +46,22 @@
           }
           &:last-child {
             width: auto;
+          }
+        }
+        .user_info {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          span {
+            font-size: 0.6em;
+            margin-right: 5px;
+            font-family: $f_brand;
+          }
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
           }
         }
         .feature_item_center {

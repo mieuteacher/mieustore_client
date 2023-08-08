@@ -1,0 +1,96 @@
+@import '@scss';
+.register_page {
+    width: 100%;
+    height: 100vh;
+    background-color: $cl_body_main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .register_form {
+        width: 500px;
+        background-color: $cl_nav_main;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: $fs_medium;
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: $cl_brand;
+            cursor: pointer;
+            transition: all 0.2s;
+            i {
+                font-size: 150px;
+            }
+            span {
+                font-size: 25px;
+                font-family: $f_brand;
+            }
+            &:hover {
+                transform: scale(1.1);
+                color: black;
+            }
+        }
+        .form_content {
+            width: 100%;
+            font-size: $fs_medium;
+            .form_input {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                font-size: 0.7em;
+                font-family: $f_title;
+                width: 100%;
+                color: grey;
+                margin: 2.5em 0;
+                flex-direction: column;
+                input {
+                    outline: none;
+                    border-bottom: 2px solid grey;
+                    background-color: transparent;
+                    width: 100%;
+                    transition: all 0.2s;
+                    color: grey;
+                    padding: 0 5px;
+                }
+                span {
+                    position: absolute;
+                    left: 5px;
+                    font-size: 0.8em;
+                    transition: all 0.2s;
+                    user-select: none;
+                }
+                &:focus-within, &.active {
+                    span {
+                        top: 0;
+                        transform: translateY(-100%);
+                        font-size: 1.2em;
+                        font-weight: 900;
+                        color: black;
+                    }
+                    input {
+                        border-width: 3px;
+                    }
+                }
+            }
+            .form_submit {
+                display: flex;
+                justify-content: flex-end;
+                .form_submit_btn {
+
+                }
+            }
+        }
+        .redirect {
+            display: flex;
+            justify-content: center;
+            font-family: $f_title;
+            font-size: 0.7em;
+            margin-top: 1em;
+            a {
+                color: $cl_brand;
+                text-decoration: none;
+            }
+        }
+    }
+}

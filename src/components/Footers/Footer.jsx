@@ -164,6 +164,14 @@ export default function Footer() {
       <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
         MDBootstrap.com
       </a>
+      <br></br>
+      <select onChange={(e) => {
+        localStorage.setItem("language", e.target.value);
+        window.location.reload();
+      }} defaultValue={localStorage.getItem("language") ?? "en"}>
+        <option value="vi">Tiếng Việt</option>
+        <option value="en">Tiếng Anh</option>
+      </select>
     </div>
     {/* Copyright */}
   </footer>

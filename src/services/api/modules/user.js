@@ -4,18 +4,20 @@ export default {
   register: async (newUser) => {
     return await axios.post(
       `${process.env.REACT_APP_SERVER_HOST_API}/users`,
-      newUser,
+      newUser
     )
-    .then(res => res)
-    .catch(err => err)
   },
   login: async (data) => {
     return await axios.post(
       `${process.env.REACT_APP_SERVER_HOST_API}/users/login`,
-      data,
+      data
     )
-    .then(res => res)
-    .catch(err => err)
+  },
+  update: async (userId, data) => {
+    return await axios.post(
+      `${process.env.REACT_APP_SERVER_HOST_API}/users/${userId}`,
+      data
+    )
   },
   authenToken: async (data) => {
     return await axios.post(
