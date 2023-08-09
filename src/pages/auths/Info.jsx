@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import "./info.scss"
 import { Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
-import { useSelector } from 'react-redux';
+
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+
+import { RootContext } from '../../App';
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const userStore = useSelector(store => store.userStore)
-  const {
+
+  const {userStore} = useContext(RootContext);
+
+  
+  const { 
     token: { colorBgContainer },
   } = theme.useToken();
 

@@ -1,33 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState, useContext} from 'react'
 import './index.scss'
 
 import AutoCompleteCustom from '@components/commons/AutoComplete';
-import api from '@api'
-import { useSelector, useDispatch } from 'react-redux';
-import actions from '../../stores/actions';
-export default function Navbar({t, userStore}) {
-    const cartStore = useSelector(store => store.cartStore)
-    const dispatch = useDispatch();
+import { RootContext } from '../../App';
+
+export default function Navbar({t}) {
+    const {cartStore} = useContext(RootContext);
+
+
     const [menu, setMenu] = useState([
     "stuffedAnimal", "toyModel", "clothes", "gameConsole"
     ]);
 
-    useEffect(() => {
-      if(!userStore.data) {
-        return
-      }
-      api.purchase.findCart(userStore.data?.id)
-      .then(res => {
-        if(res.status == 200) {
-          dispatch(actions.cartActions.setCartData(res.data.data))
-        }else {
-          alert(res.data.message)
-        }
-      })
-      .catch(err => {
-        alert("sập!")
-      })
-    }, [userStore.data])
+
   return (
     <nav>
     <div className="nav_content">

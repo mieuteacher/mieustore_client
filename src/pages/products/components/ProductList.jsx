@@ -31,7 +31,7 @@ export default function ProductList() {
                                 <img key={Date.now() * Math.random()} style={{width: '50px', height: '50px'}} src={`${picture.url}`}/>                           
                             ))
                         }
-                        <button type="button" class="btn btn-primary">Buy</button>
+                        <button type="button" className="btn btn-primary">Buy</button>
                     </li>
                 ))
             }

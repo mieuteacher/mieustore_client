@@ -32,6 +32,9 @@ const userSlice = createSlice({
         load: !state.load,
       };
     },
+    sayHello: (state, action) => {
+      alert("Hello được rồi bạn")
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(find.fulfilled, (state, action) => {
