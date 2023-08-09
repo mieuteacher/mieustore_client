@@ -87,10 +87,13 @@ const App = () => {
         >
           <div>
             xin chào 
-            <span style={{fontWeight: 900, margin: "0 5px"}}>{userStore.data?.first_name} {userStore.data?.last_name}</span>
+            <span style={{fontWeight: 900, margin: "0 5px"}}>
+              {userStore.data?.first_name} {userStore.data?.last_name}
+            </span>
             <span style={{fontWeight: 900, margin: "0 5px"}}>create at: {`${new Date(userStore.data?.create_at).getDay()}/${new Date(userStore.data?.create_at).getMonth()}//${new Date(userStore.data?.create_at).getFullYear()}`}</span>
             <span style={{fontWeight: 900, margin: "0 5px"}}>lastupdate at: {`${new Date(userStore.data?.create_at).getDay()}/${new Date(userStore.data?.create_at).getMonth()}//${new Date(userStore.data?.create_at).getFullYear()}`}</span>
           </div>
+          <img src={userStore.data?.avatar} style={{width: "50px", height: "50px", borderRadius: "50%"}}/>
         </Header>
         <Content
           style={{

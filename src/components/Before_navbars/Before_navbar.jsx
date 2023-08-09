@@ -18,7 +18,7 @@ export default function Before_navbar({ t, userStore }) {
                     window.location.href = "/profile"
                   }} className='user_info'>
                     <span>{`Hi, ${userStore.data.first_name} ${userStore.data.last_name}`}</span>
-                    <img src={`${process.env.REACT_APP_SERVER_HOST}${userStore.data.avatar}`} />
+                    <img src={`${userStore.data?.avatar}`} />
                   </div>
                   : 
                   <span key={Date.now() * Math.random()} onClick={() => {

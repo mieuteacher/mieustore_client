@@ -14,18 +14,27 @@ export default {
     )
   },
   update: async (userId, data) => {
-    return await axios.post(
+    return await axios.patch(
       `${process.env.REACT_APP_SERVER_HOST_API}/users/${userId}`,
       data
+    )
+  },
+  updateAvatar: async (userId, formData) => {
+    return await axios.patch(
+      `${process.env.REACT_APP_SERVER_HOST_API}/users/${userId}/avatar`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }
     )
   },
   authenToken: async (data) => {
     return await axios.post(
       `${process.env.REACT_APP_SERVER_HOST_API}/users/authen-token`,
-      data,
+      data
     )
-    .then(res => res)
-    .catch(err => err)
   },
   resend: async (data) => {
     return await axios.get(

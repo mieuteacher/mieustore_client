@@ -5,7 +5,6 @@ import {useEffect } from 'react';
 /* Route Config */
 import AuthRoute from "@pages/auths/Route";
 import HomeRoute from "@pages/home/Route";
-
 import { useDispatch } from 'react-redux';
 import { userActions } from '@actions/user';
 

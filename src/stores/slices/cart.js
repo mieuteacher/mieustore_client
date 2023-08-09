@@ -1,26 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../services/api";
 
-const find = createAsyncThunk("/find", async () => {
-  let result = await api.users.find();
-  return result.data;
-});
 
-const authenToken = createAsyncThunk("/authen-token", async () => {
-  let result = await api.users.authenToken(
-    {
-      token: localStorage.getItem('token')
-    }
-  );
-  if (result.status == 200) {
-    return result.data;
-  }else {
-    return false
-  }
-});
-
-const userSlice = createSlice({
-  name: "user",
+const cartSlice = createSlice({
+  name: "cart",
   initialState: {
     loading: true,
     data: null,
@@ -32,18 +15,14 @@ const userSlice = createSlice({
         load: !state.load,
       };
     },
+    setCartData: (state, action) => {
+        state.data = {...action.payload}
+    }
   },
   extraReducers: (builder) => {
-    builder.addCase(find.fulfilled, (state, action) => {
-      state.data = [...action.payload.data];
-    });
-    builder.addCase(authenToken.fulfilled, (state, action) => {
-      if(action.payload) {
-        state.data = action.payload.data;
-      }else {
-        localStorage.removeItem("token");
-      }
-    });
+    // builder.addCase(find.fulfilled, (state, action) => {
+    //   state.data = [...action.payload.data];
+    // });
     builder.addMatcher(
       (action) => {
         if (action.meta) {
@@ -73,10 +52,8 @@ const userSlice = createSlice({
   },
 });
 
-export const userActions = {
-  ...userSlice.actions,
-  find,
-  authenToken
+export const cartActions = {
+  ...cartSlice.actions
 };
 
-export const userReducer = userSlice.reducer;
+export const cartReducer = cartSlice.reducer;

@@ -49,6 +49,47 @@ export default function Information() {
       });
     }
   }
+
+  async function updateAvatar(e) {
+
+    if (e.target.files.length > 0) {
+      e.target.parentNode.querySelector('.input_img_preview').src = URL.createObjectURL(e.target.files[0]);
+    }
+
+    try {
+      let formData = new FormData();
+      formData.append('avatar', e.target.files[0]);
+
+      setLoading(true);
+      let result = await api.users.updateAvatar(userStore.data?.id, formData);
+      setLoading(false);
+      if(result.status == 200) {
+        Modal.success({
+          content: `${result.data.message}, bạn sẽ phải đăng nhập lại!!`,
+          onOk: () => {
+              localStorage.removeItem("token");
+              window.location.reload();
+          },
+        });
+      }else {
+        Modal.error({
+          content: `${result.data.message}, vui lòng thử lại!`,
+          onOk: () => {
+              /* Xử lý tiếp */
+          },
+        });
+      }
+    }catch(err) {
+      console.log("err", err)
+      setLoading(false);
+      Modal.error({
+        content: `Lỗi gọi api`,
+        onOk: () => {
+            /* Xử lý tiếp */
+        },
+      });
+    }
+  }
   return (
     <>
     <div className='information_page'>
@@ -70,11 +111,9 @@ export default function Information() {
         <div className='fields_avatar'>
           <p className='fields_lable'>Avatar:</p> 
           <div className='input_file'>
-            <img className='input_img_preview' src={`${process.env.REACT_APP_SERVER_HOST}${userStore.data?.avatar}`}/>
+            <img className='input_img_preview' src={`${userStore.data?.avatar}`}/>
             <input onChange={(e) => {
-              if (e.target.files.length > 0) {
-                e.target.parentNode.querySelector('.input_img_preview').src = URL.createObjectURL(e.target.files[0]);
-              } 
+                updateAvatar(e);
             }} className='input_btn' type="file" />
             {/* <i className="input_edit_icon fa-solid fa-pen-to-square"></i> */}
           </div>
